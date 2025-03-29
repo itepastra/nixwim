@@ -1419,15 +1419,15 @@
       "locked": {
         "lastModified": 1743281425,
         "narHash": "sha256-TX4Zmp2RY+Bewnez1OAdSOSUzK1aFwCaCqH72TbRbo0=",
-        "ref": "refs/heads/main",
+        "owner": "itepastra",
+        "repo": "nixconf",
         "rev": "c6ce360e0877cddde0d0277efbbf79c59e1c6065",
-        "revCount": 1193,
-        "type": "git",
-        "url": "file:///home/noa/programming/nixconf"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/noa/programming/nixconf"
+        "owner": "itepastra",
+        "repo": "nixconf",
+        "type": "github"
       }
     },
     "oxalica": {
