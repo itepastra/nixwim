@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   nix-colors,
@@ -35,29 +36,7 @@
       inherit inputs nix-colors;
     };
     users = {
-      "noa" = (import inputs.noa-flake.nixosModules.chome) {
-        enableGraphical = true;
-        enableFlut = false;
-        enableGames = false;
-        displays = [
-          {
-            name = "DP-6";
-            horizontal = 3840;
-            vertical = 1200;
-            horizontal-offset = 0;
-            vertical-offset = 0;
-            refresh-rate = 100;
-            scale = "1";
-          }
-        ];
-        extraConfig = {
-          programs.btop.package = pkgs.btop.overrideAttrs (oldAttrs: {
-            cmakeFlags = (oldAttrs.cmakeFlags or [ ]) ++ [
-              "-DBTOP_GPU=ON"
-            ];
-          });
-        };
-      };
+      "noa" = inputs.noa-flake.homeManagerModules."noa@zelden";
       "wim" = (import ./wim.nix);
     };
   };
@@ -87,7 +66,7 @@
 
   services = {
     desktopManager.plasma6.enable = true;
-    displaymanager.sddm = {
+    displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
@@ -111,6 +90,7 @@
   system = {
     switch.enableNg = true;
     rebuild.enableNg = true;
+    stateVersion = "25.05";
   };
 
   users.users = {
@@ -141,7 +121,7 @@
     package = pkgs.docker_27;
     rootless = {
       enable = true;
-      setsocketvariable = true;
+      setSocketVariable = true;
     };
   };
 }

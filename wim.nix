@@ -17,7 +17,10 @@
 
   xdg = {
     enable = true;
-    portal.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    };
     userDirs = {
       enable = true;
       createDirectories = true;
